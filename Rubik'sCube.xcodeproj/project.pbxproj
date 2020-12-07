@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		933DB0B0257DB88800CB6FF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0AF257DB88800CB6FF8 /* main.swift */; };
+		933DB0B8257DB9D500CB6FF8 /* PushOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0B7257DB9D500CB6FF8 /* PushOut.swift */; };
+		933DB0BB257DBB3F00CB6FF8 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0BA257DBB3F00CB6FF8 /* Input.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		933DB0AC257DB88800CB6FF8 /* Rubik'sCube */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Rubik'sCube"; sourceTree = BUILT_PRODUCTS_DIR; };
 		933DB0AF257DB88800CB6FF8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		933DB0B7257DB9D500CB6FF8 /* PushOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushOut.swift; sourceTree = "<group>"; };
+		933DB0BA257DBB3F00CB6FF8 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				933DB0AF257DB88800CB6FF8 /* main.swift */,
+				933DB0B7257DB9D500CB6FF8 /* PushOut.swift */,
+				933DB0BA257DBB3F00CB6FF8 /* Input.swift */,
 			);
 			path = "Rubik'sCube";
 			sourceTree = "<group>";
@@ -119,6 +125,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933DB0BB257DBB3F00CB6FF8 /* Input.swift in Sources */,
+				933DB0B8257DB9D500CB6FF8 /* PushOut.swift in Sources */,
 				933DB0B0257DB88800CB6FF8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
