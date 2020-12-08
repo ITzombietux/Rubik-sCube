@@ -10,6 +10,11 @@
 		933DB0B0257DB88800CB6FF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0AF257DB88800CB6FF8 /* main.swift */; };
 		933DB0B8257DB9D500CB6FF8 /* PushOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0B7257DB9D500CB6FF8 /* PushOut.swift */; };
 		933DB0BB257DBB3F00CB6FF8 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0BA257DBB3F00CB6FF8 /* Input.swift */; };
+		933DB0C4257DD92600CB6FF8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0C3257DD92600CB6FF8 /* Stack.swift */; };
+		933DB0C7257DD93E00CB6FF8 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0C6257DD93E00CB6FF8 /* Queue.swift */; };
+		933DB0CC257E07E500CB6FF8 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0CB257E07E500CB6FF8 /* Print.swift */; };
+		933DB0D0257E0BB300CB6FF8 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0CF257E0BB300CB6FF8 /* Exception.swift */; };
+		933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +34,11 @@
 		933DB0AF257DB88800CB6FF8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		933DB0B7257DB9D500CB6FF8 /* PushOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushOut.swift; sourceTree = "<group>"; };
 		933DB0BA257DBB3F00CB6FF8 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		933DB0C3257DD92600CB6FF8 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		933DB0C6257DD93E00CB6FF8 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		933DB0CB257E07E500CB6FF8 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		933DB0CF257E0BB300CB6FF8 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
+		933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCube.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +72,39 @@
 			isa = PBXGroup;
 			children = (
 				933DB0AF257DB88800CB6FF8 /* main.swift */,
-				933DB0B7257DB9D500CB6FF8 /* PushOut.swift */,
 				933DB0BA257DBB3F00CB6FF8 /* Input.swift */,
+				933DB0CB257E07E500CB6FF8 /* Print.swift */,
+				933DB0CF257E0BB300CB6FF8 /* Exception.swift */,
+				933DB107257F27D200CB6FF8 /* Cube */,
 			);
 			path = "Rubik'sCube";
+			sourceTree = "<group>";
+		};
+		933DB0C2257DD8DF00CB6FF8 /* Rubik'sCube */ = {
+			isa = PBXGroup;
+			children = (
+				933DB0B7257DB9D500CB6FF8 /* PushOut.swift */,
+			);
+			path = "Rubik'sCube";
+			sourceTree = "<group>";
+		};
+		933DB102257F0A1700CB6FF8 /* FlatCube */ = {
+			isa = PBXGroup;
+			children = (
+				933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */,
+			);
+			path = FlatCube;
+			sourceTree = "<group>";
+		};
+		933DB107257F27D200CB6FF8 /* Cube */ = {
+			isa = PBXGroup;
+			children = (
+				933DB0C3257DD92600CB6FF8 /* Stack.swift */,
+				933DB0C6257DD93E00CB6FF8 /* Queue.swift */,
+				933DB102257F0A1700CB6FF8 /* FlatCube */,
+				933DB0C2257DD8DF00CB6FF8 /* Rubik'sCube */,
+			);
+			path = Cube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +164,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933DB0C7257DD93E00CB6FF8 /* Queue.swift in Sources */,
+				933DB0CC257E07E500CB6FF8 /* Print.swift in Sources */,
+				933DB0C4257DD92600CB6FF8 /* Stack.swift in Sources */,
 				933DB0BB257DBB3F00CB6FF8 /* Input.swift in Sources */,
 				933DB0B8257DB9D500CB6FF8 /* PushOut.swift in Sources */,
 				933DB0B0257DB88800CB6FF8 /* main.swift in Sources */,
+				933DB0D0257E0BB300CB6FF8 /* Exception.swift in Sources */,
+				933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
