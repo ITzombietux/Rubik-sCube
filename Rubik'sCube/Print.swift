@@ -12,8 +12,21 @@ struct Print {
         print(rubiksCube.reduce("", { $0 + $1 }))
     }
     
-    func printFlatCube(_ flatCube: [[String]]) {
-        for line in flatCube {
+    func printFlatCube(_ flatCubes: [resultFlatCube]) {
+        flatCubes.forEach { cubes in
+            print(cubes.key)
+            for cube in cubes.value {
+                for element in cube {
+                    print(element, terminator: " ")
+                }
+                print("")
+            }
+            print("")
+        }
+    }
+    
+    func initPrintFlatCube(_ initFlatCube: flatCube) {
+        for line in initFlatCube {
             for element in line {
                 print(element, terminator: " ")
             }

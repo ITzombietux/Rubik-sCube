@@ -35,7 +35,7 @@ struct Input {
     //MARK:- 평면 큐브
     func flatCubeInput(initFlatCube: [[String]]) -> String {
         let myPrint = Print()
-        myPrint.printFlatCube(initFlatCube)
+        myPrint.initPrintFlatCube(initFlatCube)
         print("\nCUBE> ", terminator: "")
         let inputString = readLine() ?? ""
         

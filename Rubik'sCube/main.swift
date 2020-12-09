@@ -13,12 +13,14 @@ func start() {
 //    let myInputInfo = myInput.rubikCubeInput()
 //
 //    var pushOut = PushOut(word: myInputInfo.0, number: myInputInfo.1, direction: myInputInfo.2)
-//    let myPrint = Print()
+    let myPrint = Print()
 //    myPrint.printRubiksCube(pushOut.pushOut())
     
-    let flatCube = FlatCube()
+    var flatCube = FlatCube()
     let flatCubeActions = myInput.flatCubeInput(initFlatCube: flatCube.groups)
-    
+    let myFlatCube = flatCube.move(input: flatCubeActions)
+//    print(myFlatCube)
+    myPrint.printFlatCube(myFlatCube)
 }
 
 start()

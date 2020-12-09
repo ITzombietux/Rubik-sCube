@@ -15,6 +15,7 @@
 		933DB0CC257E07E500CB6FF8 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0CB257E07E500CB6FF8 /* Print.swift */; };
 		933DB0D0257E0BB300CB6FF8 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0CF257E0BB300CB6FF8 /* Exception.swift */; };
 		933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */; };
+		933DB10A257F2A9200CB6FF8 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB109257F2A9200CB6FF8 /* Enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		933DB0CB257E07E500CB6FF8 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		933DB0CF257E0BB300CB6FF8 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
 		933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCube.swift; sourceTree = "<group>"; };
+		933DB109257F2A9200CB6FF8 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +82,12 @@
 			path = "Rubik'sCube";
 			sourceTree = "<group>";
 		};
-		933DB0C2257DD8DF00CB6FF8 /* Rubik'sCube */ = {
+		933DB0C2257DD8DF00CB6FF8 /* pushOut */ = {
 			isa = PBXGroup;
 			children = (
 				933DB0B7257DB9D500CB6FF8 /* PushOut.swift */,
 			);
-			path = "Rubik'sCube";
+			path = pushOut;
 			sourceTree = "<group>";
 		};
 		933DB102257F0A1700CB6FF8 /* FlatCube */ = {
@@ -101,8 +103,9 @@
 			children = (
 				933DB0C3257DD92600CB6FF8 /* Stack.swift */,
 				933DB0C6257DD93E00CB6FF8 /* Queue.swift */,
+				933DB109257F2A9200CB6FF8 /* Enum.swift */,
 				933DB102257F0A1700CB6FF8 /* FlatCube */,
-				933DB0C2257DD8DF00CB6FF8 /* Rubik'sCube */,
+				933DB0C2257DD8DF00CB6FF8 /* pushOut */,
 			);
 			path = Cube;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				933DB0C4257DD92600CB6FF8 /* Stack.swift in Sources */,
 				933DB0BB257DBB3F00CB6FF8 /* Input.swift in Sources */,
 				933DB0B8257DB9D500CB6FF8 /* PushOut.swift in Sources */,
+				933DB10A257F2A9200CB6FF8 /* Enum.swift in Sources */,
 				933DB0B0257DB88800CB6FF8 /* main.swift in Sources */,
 				933DB0D0257E0BB300CB6FF8 /* Exception.swift in Sources */,
 				933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */,

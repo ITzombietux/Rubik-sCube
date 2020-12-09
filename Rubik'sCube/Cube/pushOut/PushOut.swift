@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum Direction: String {
-    case upperRight = "R"
-    case lowerRight = "r"
-    case upperLeft = "L"
-    case lowerLeft = "l"
-}
-
 struct PushOut {
     private var word: String
     private var number: Int
@@ -26,9 +19,9 @@ struct PushOut {
     }
     
     mutating func pushOut() -> [String] {
-        if self.direction == Direction.upperRight.rawValue || self.direction == Direction.lowerRight.rawValue {
+        if self.direction == RubikDirection.upperRight.rawValue || self.direction == RubikDirection.lowerRight.rawValue {
             return rightPushOut()
-        } else if self.direction == Direction.upperLeft.rawValue || self.direction == Direction.lowerLeft.rawValue {
+        } else if self.direction == RubikDirection.upperLeft.rawValue || self.direction == RubikDirection.lowerLeft.rawValue {
             return leftPushOut()
         }
         
