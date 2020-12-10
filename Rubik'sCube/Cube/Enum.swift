@@ -27,8 +27,5 @@ enum Action: String {
     case upMostLeftLine = "L'"
     case downMostLeftLine = "L"
     
-    case frontClockwise = "F"
-    case frontAntiClockwise = "F'"
-    
     case bye = "Q"
 }

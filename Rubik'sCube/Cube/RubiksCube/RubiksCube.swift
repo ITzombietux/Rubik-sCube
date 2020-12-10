@@ -18,9 +18,31 @@ struct RubiksCube {
     }
     
     mutating func move(input: String) -> [resultFlatCube] {
-        let actions = input.map { String($0) }
+        let actions = makeAction(input)
         var myFlatCube = [flatCube]()
         var resultFlatCube: [resultFlatCube] = []
+        
         return resultFlatCube
+    }
+    
+    private mutating func makeAction(_ input: String) -> [String] {
+        var result = [String]()
+        let actions = input.map { String($0) }
+        
+        for i in 0..<actions.count {
+            if actions[i] == "'" {
+                let action = actions[i-1] + "'"
+                result.popLast()
+                result.append(action)
+            } else if actions[i] == "2" {
+                let action = actions[i-2] + actions[i-1] + "2"
+                result.popLast()
+                result.append(action)
+            } else {
+                result.append(actions[i])
+            }
+        }
+        
+        return result
     }
 }
