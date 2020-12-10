@@ -16,6 +16,7 @@
 		933DB0D0257E0BB300CB6FF8 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0CF257E0BB300CB6FF8 /* Exception.swift */; };
 		933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */; };
 		933DB10A257F2A9200CB6FF8 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB109257F2A9200CB6FF8 /* Enum.swift */; };
+		933DB10F258059FF00CB6FF8 /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB10E258059FF00CB6FF8 /* RubiksCube.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		933DB0CF257E0BB300CB6FF8 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
 		933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCube.swift; sourceTree = "<group>"; };
 		933DB109257F2A9200CB6FF8 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		933DB10E258059FF00CB6FF8 /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +106,19 @@
 				933DB0C3257DD92600CB6FF8 /* Stack.swift */,
 				933DB0C6257DD93E00CB6FF8 /* Queue.swift */,
 				933DB109257F2A9200CB6FF8 /* Enum.swift */,
-				933DB102257F0A1700CB6FF8 /* FlatCube */,
 				933DB0C2257DD8DF00CB6FF8 /* pushOut */,
+				933DB102257F0A1700CB6FF8 /* FlatCube */,
+				933DB11125805A0400CB6FF8 /* RubiksCube */,
 			);
 			path = Cube;
+			sourceTree = "<group>";
+		};
+		933DB11125805A0400CB6FF8 /* RubiksCube */ = {
+			isa = PBXGroup;
+			children = (
+				933DB10E258059FF00CB6FF8 /* RubiksCube.swift */,
+			);
+			path = RubiksCube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				933DB10A257F2A9200CB6FF8 /* Enum.swift in Sources */,
 				933DB0B0257DB88800CB6FF8 /* main.swift in Sources */,
 				933DB0D0257E0BB300CB6FF8 /* Exception.swift in Sources */,
+				933DB10F258059FF00CB6FF8 /* RubiksCube.swift in Sources */,
 				933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

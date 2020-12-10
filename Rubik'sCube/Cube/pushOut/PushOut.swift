@@ -19,9 +19,9 @@ struct PushOut {
     }
     
     mutating func pushOut() -> [String] {
-        if self.direction == RubikDirection.upperRight.rawValue || self.direction == RubikDirection.lowerRight.rawValue {
+        if self.direction == Direction.upperRight.rawValue || self.direction == Direction.lowerRight.rawValue {
             return rightPushOut()
-        } else if self.direction == RubikDirection.upperLeft.rawValue || self.direction == RubikDirection.lowerLeft.rawValue {
+        } else if self.direction == Direction.upperLeft.rawValue || self.direction == Direction.lowerLeft.rawValue {
             return leftPushOut()
         }
         

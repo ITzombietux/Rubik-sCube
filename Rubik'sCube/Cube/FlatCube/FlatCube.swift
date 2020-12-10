@@ -11,8 +11,12 @@ typealias flatCube = [[String]]
 typealias resultFlatCube = (key: String, value: flatCube)
 
 struct FlatCube {
-    private(set) var groups: flatCube = [["R", "R", "W"], ["G", "C", "W"], ["G", "B", "B"]]
+    private(set) var groups: flatCube
     private(set) var actions = [String]()
+    
+    init(groups: flatCube) {
+        self.groups = groups
+    }
     
     mutating func move(input: String) -> [resultFlatCube] {
         let actions = makeAction(input)
@@ -47,7 +51,7 @@ struct FlatCube {
     }
     
     private mutating func pushOut(_ action: String) -> flatCube {
-        let move = FlatAction(rawValue: action)
+        let move = Action(rawValue: action)
         
         switch move {
         case .leftFirstLine:

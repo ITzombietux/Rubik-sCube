@@ -12,6 +12,7 @@ struct Print {
         print(rubiksCube.reduce("", { $0 + $1 }))
     }
     
+    //MARK:- 평면 큐브
     func printFlatCube(_ flatCubes: [resultFlatCube]) {
         flatCubes.forEach { cubes in
             print(cubes.key)
@@ -31,6 +32,20 @@ struct Print {
                 print(element, terminator: " ")
             }
             print("")
+        }
+    }
+    
+    //MARK:- 루빅스 큐브
+    
+    func initPrintRubiksCube(_ initRubiksCube: RubiksCube) {
+        initRubiksCube.groups.forEach { cubes in
+            for cube in cubes {
+                for element in cube {
+                    print(element, terminator: " ")
+                }
+                print(" ")
+            }
+            print(" ")
         }
     }
 }

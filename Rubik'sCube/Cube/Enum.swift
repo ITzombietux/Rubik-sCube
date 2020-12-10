@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum RubikDirection: String {
+enum Direction: String {
     case upperRight = "R"
     case lowerRight = "r"
     case upperLeft = "L"
     case lowerLeft = "l"
 }
 
-enum FlatAction: String {
+enum Action: String {
     case leftFirstLine = "U"
     case rightFirstLine = "U'"
     
@@ -26,6 +26,9 @@ enum FlatAction: String {
     
     case upMostLeftLine = "L'"
     case downMostLeftLine = "L"
+    
+    case frontClockwise = "F"
+    case frontAntiClockwise = "F'"
     
     case bye = "Q"
 }

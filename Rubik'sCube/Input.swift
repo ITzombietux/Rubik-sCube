@@ -41,4 +41,15 @@ struct Input {
         
         return inputString
     }
+    
+    //MARK:- 루빅스 큐브
+    func rubiksCubeInput(initRubiksCube: RubiksCube) -> String {
+        let myPrint = Print()
+        myPrint.initPrintRubiksCube(initRubiksCube)
+        
+        print("\nCUBE> ", terminator: "")
+        let inputString = readLine() ?? ""
+        
+        return inputString
+    }
 }
