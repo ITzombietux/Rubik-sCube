@@ -14,7 +14,7 @@ enum Direction: String {
     case lowerLeft = "l"
 }
 
-enum Action: String {
+enum FlatCubeAction: String {
     case leftFirstLine = "U"
     case rightFirstLine = "U'"
     
@@ -26,6 +26,22 @@ enum Action: String {
     
     case upMostLeftLine = "L'"
     case downMostLeftLine = "L"
+    
+    case bye = "Q"
+}
+
+enum RubiksCubeAction: String {
+    case frontClockwise = "F"
+    case frontAntiClockwise = "F'"
+    
+    case topFlatClockwise = "U"
+    case topFlatAntiClockwise = "U'"
+    
+    case leftFlatClockwise = "L"
+    case leftFlatAntiClockwise = "L'"
+    
+    case rightFlatClockwise = "R"
+    case rightFlatAntiClockwise = "R'"
     
     case bye = "Q"
 }

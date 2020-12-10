@@ -51,7 +51,7 @@ struct FlatCube {
     }
     
     private mutating func pushOut(_ action: String) -> flatCube {
-        let move = Action(rawValue: action)
+        let move = FlatCubeAction(rawValue: action)
         
         switch move {
         case .leftFirstLine:
