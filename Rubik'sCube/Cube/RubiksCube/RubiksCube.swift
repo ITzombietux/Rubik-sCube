@@ -8,6 +8,7 @@
 import Foundation
 
 typealias rubiksCube = [flatCube]
+typealias resultRubiksCube = (key: String, value: rubiksCube)
 
 struct RubiksCube {
     private(set) var groups: rubiksCube
@@ -17,12 +18,17 @@ struct RubiksCube {
         self.groups = groups
     }
     
-    mutating func move(input: String) -> [resultFlatCube] {
+    mutating func move(input: String) -> [resultRubiksCube] {
         let actions = makeAction(input)
-        var myFlatCube = [flatCube]()
-        var resultFlatCube: [resultFlatCube] = []
+        var myRubiksCube = [rubiksCube]()
+        var myResultRubiksCube: [resultRubiksCube] = []
         
-        return resultFlatCube
+        for action in actions {
+            myRubiksCube.append(pushOut(action))
+        }
+        
+        myResultRubiksCube = zip(actions, myRubiksCube).map { (key: $0, value: $1) }
+        return myResultRubiksCube
     }
     
     private mutating func makeAction(_ input: String) -> [String] {
@@ -44,5 +50,42 @@ struct RubiksCube {
         }
         
         return result
+    }
+    
+    private mutating func pushOut(_ action: String) -> rubiksCube {
+        let move = RubiksCubeAction(rawValue: action)
+        
+        switch move {
+        case .topFlatClockwise:
+//            print()
+            return pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+        case .frontClockwise:
+            print()
+        case .frontAntiClockwise:
+            print()
+        case .topFlatAntiClockwise:
+            print()
+        case .leftFlatClockwise:
+            print()
+        case .leftFlatAntiClockwise:
+            print()
+        case .rightFlatClockwise:
+            print()
+        case .rightFlatAntiClockwise:
+            print()
+        case .bye:
+            print()
+        case .none:
+            print()
+        }
+        
+        return []
+    }
+    
+    private mutating func pushOutTopFlatClockwise(_ target: [[String]]) -> rubiksCube {
+        
+        print("##target",target)
+        
+        return groups
     }
 }

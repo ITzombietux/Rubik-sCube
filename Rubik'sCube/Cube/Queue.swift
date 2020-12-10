@@ -25,5 +25,24 @@ struct Queue {
         
         return wordQueue.removeFirst()
     }
+}
 
+struct RubiksCubeQueue {
+    private(set) var lineQueue: [[String]]
+    
+    init(lineQueue: [[String]]) {
+        self.lineQueue = lineQueue
+    }
+    
+    mutating func enqueue(_ element: [String]) {
+        lineQueue.append(element)
+    }
+    
+    mutating func dequeue() -> [String]? {
+        guard !lineQueue.isEmpty else {
+            return nil
+        }
+        
+        return lineQueue.removeFirst()
+    }
 }

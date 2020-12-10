@@ -26,3 +26,23 @@ struct Stack {
         wordStack.insert(contentsOf: [element], at: 0)
     }
 }
+
+struct RubiksCubeStack {
+    private(set) var lineStack: [[String]]
+    
+    init(lineStack: [[String]]) {
+        self.lineStack = lineStack
+    }
+    
+    mutating func push(_ element: [String]) {
+        lineStack.append(element)
+    }
+    
+    mutating func pop() -> [String]? {
+        return lineStack.popLast()
+    }
+    
+    mutating func insert(_ element: [String]) {
+        lineStack.insert(contentsOf: [element], at: 0)
+    }
+}
