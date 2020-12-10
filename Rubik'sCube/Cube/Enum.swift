@@ -43,5 +43,11 @@ enum RubiksCubeAction: String {
     case rightFlatClockwise = "R"
     case rightFlatAntiClockwise = "R'"
     
+    case bottomFlatClockwise = "B"
+    case bottomFlatAntiClockwise = "B'"
+    
+    case downFlatClockwise = "D"
+    case downFlatAntiClockwise = "D'"
+    
     case bye = "Q"
 }

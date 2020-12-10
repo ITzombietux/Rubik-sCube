@@ -57,22 +57,29 @@ struct RubiksCube {
         
         switch move {
         case .topFlatClockwise:
-//            print()
             return pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
         case .frontClockwise:
-            print()
+            return pushOutFrontClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
         case .frontAntiClockwise:
-            print()
+            return pushOutFrontAntiClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
         case .topFlatAntiClockwise:
-            print()
+            return pushOutTopFlatAntiClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
         case .leftFlatClockwise:
-            print()
+            return pushOutLeftFlatClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
         case .leftFlatAntiClockwise:
-            print()
+            return pushOutLeftFlatAntiClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
         case .rightFlatClockwise:
-            print()
+            return pushOutRightFlatClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
         case .rightFlatAntiClockwise:
-            print()
+            return pushOutRightFlatAntiClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+        case .bottomFlatClockwise:
+            return pushOutBottomFlatClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+        case .bottomFlatAntiClockwise:
+            return pushOutBottomFlatAntiClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+        case .downFlatClockwise:
+            return pushOutDownFlatClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
+        case .downFlatAntiClockwise:
+            return pushOutDownFlatAntiClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
         case .bye:
             print()
         case .none:
@@ -82,9 +89,230 @@ struct RubiksCube {
         return []
     }
     
-    private mutating func pushOutTopFlatClockwise(_ target: [[String]]) -> rubiksCube {
+    private mutating func pushOutTopFlatAntiClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyStack = RubiksCubeStack(lineStack: [])
+        var stack = RubiksCubeStack(lineStack: target)
         
-        print("##target",target)
+        emptyStack.push(stack.pop() ?? [])
+        stack.insert(emptyStack.pop() ?? [])
+        
+        groups[1][0] = stack.lineStack[0]
+        groups[2][0] = stack.lineStack[1]
+        groups[3][0] = stack.lineStack[2]
+        groups[4][0] = stack.lineStack[3]
+        
+        return groups
+    }
+    
+    private mutating func pushOutTopFlatClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyQueue = RubiksCubeQueue(lineQueue: [])
+        var queue = RubiksCubeQueue(lineQueue: target)
+        
+        emptyQueue.enqueue(queue.dequeue() ?? [])
+        queue.enqueue(emptyQueue.dequeue() ?? [])
+        
+        groups[1][0] = queue.lineQueue[0]
+        groups[2][0] = queue.lineQueue[1]
+        groups[3][0] = queue.lineQueue[2]
+        groups[4][0] = queue.lineQueue[3]
+        
+        return groups
+    }
+    
+    private mutating func pushOutLeftFlatClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyStack = RubiksCubeStack(lineStack: [])
+        var stack = RubiksCubeStack(lineStack: target)
+        
+        emptyStack.push(stack.pop() ?? [])
+        stack.insert(emptyStack.pop() ?? [])
+
+        groups[0][0][0] = stack.lineStack[0][0]
+        groups[0][1][0] = stack.lineStack[0][1]
+        groups[0][2][0] = stack.lineStack[0][2]
+        groups[2][0][0] = stack.lineStack[1][0]
+        groups[2][1][0] = stack.lineStack[1][1]
+        groups[2][2][0] = stack.lineStack[1][2]
+        groups[4][0][0] = stack.lineStack[2][0]
+        groups[4][1][0] = stack.lineStack[2][1]
+        groups[4][2][0] = stack.lineStack[2][2]
+        groups[5][0][0] = stack.lineStack[3][0]
+        groups[5][1][0] = stack.lineStack[3][1]
+        groups[5][2][0] = stack.lineStack[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutLeftFlatAntiClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyQueue = RubiksCubeQueue(lineQueue: [])
+        var queue = RubiksCubeQueue(lineQueue: target)
+        
+        emptyQueue.enqueue(queue.dequeue() ?? [])
+        queue.enqueue(emptyQueue.dequeue() ?? [])
+
+        groups[0][0][0] = queue.lineQueue[0][0]
+        groups[0][1][0] = queue.lineQueue[0][1]
+        groups[0][2][0] = queue.lineQueue[0][2]
+        groups[2][0][0] = queue.lineQueue[1][0]
+        groups[2][1][0] = queue.lineQueue[1][1]
+        groups[2][2][0] = queue.lineQueue[1][2]
+        groups[4][0][0] = queue.lineQueue[2][0]
+        groups[4][1][0] = queue.lineQueue[2][1]
+        groups[4][2][0] = queue.lineQueue[2][2]
+        groups[5][0][0] = queue.lineQueue[3][0]
+        groups[5][1][0] = queue.lineQueue[3][1]
+        groups[5][2][0] = queue.lineQueue[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutFrontClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyStack = RubiksCubeStack(lineStack: [])
+        var stack = RubiksCubeStack(lineStack: target)
+        
+        emptyStack.push(stack.pop() ?? [])
+        stack.insert(emptyStack.pop() ?? [])
+                
+        groups[0][2] = stack.lineStack[0]
+        groups[3][0][0] = stack.lineStack[1][0]
+        groups[3][1][0] = stack.lineStack[1][1]
+        groups[3][2][0] = stack.lineStack[1][1]
+        groups[5][0] = stack.lineStack[2]
+        groups[1][0][2] = stack.lineStack[3][0]
+        groups[1][1][2] = stack.lineStack[3][1]
+        groups[1][2][2] = stack.lineStack[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutFrontAntiClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyQueue = RubiksCubeQueue(lineQueue: [])
+        var queue = RubiksCubeQueue(lineQueue: target)
+        
+        emptyQueue.enqueue(queue.dequeue() ?? [])
+        queue.enqueue(emptyQueue.dequeue() ?? [])
+                
+        groups[0][2] = queue.lineQueue[0]
+        groups[3][0][0] = queue.lineQueue[1][0]
+        groups[3][1][0] = queue.lineQueue[1][1]
+        groups[3][2][0] = queue.lineQueue[1][1]
+        groups[5][0] = queue.lineQueue[2]
+        groups[1][0][2] = queue.lineQueue[3][0]
+        groups[1][1][2] = queue.lineQueue[3][1]
+        groups[1][2][2] = queue.lineQueue[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutRightFlatClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyStack = RubiksCubeStack(lineStack: [])
+        var stack = RubiksCubeStack(lineStack: target)
+        
+        emptyStack.push(stack.pop() ?? [])
+        stack.insert(emptyStack.pop() ?? [])
+        
+        groups[0][0][2] = stack.lineStack[0][0]
+        groups[0][1][2] = stack.lineStack[0][1]
+        groups[0][2][2] = stack.lineStack[0][2]
+        groups[4][0][2] = stack.lineStack[1][0]
+        groups[4][1][2] = stack.lineStack[1][1]
+        groups[4][2][2] = stack.lineStack[1][2]
+        groups[5][0][2] = stack.lineStack[2][0]
+        groups[5][1][2] = stack.lineStack[2][1]
+        groups[5][2][2] = stack.lineStack[2][2]
+        groups[2][0][2] = stack.lineStack[3][0]
+        groups[2][1][2] = stack.lineStack[3][1]
+        groups[2][2][2] = stack.lineStack[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutRightFlatAntiClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyQueue = RubiksCubeQueue(lineQueue: [])
+        var queue = RubiksCubeQueue(lineQueue: target)
+        
+        emptyQueue.enqueue(queue.dequeue() ?? [])
+        queue.enqueue(emptyQueue.dequeue() ?? [])
+        
+        groups[0][0][2] = queue.lineQueue[0][0]
+        groups[0][1][2] = queue.lineQueue[0][1]
+        groups[0][2][2] = queue.lineQueue[0][2]
+        groups[4][0][2] = queue.lineQueue[1][0]
+        groups[4][1][2] = queue.lineQueue[1][1]
+        groups[4][2][2] = queue.lineQueue[1][2]
+        groups[5][0][2] = queue.lineQueue[2][0]
+        groups[5][1][2] = queue.lineQueue[2][1]
+        groups[5][2][2] = queue.lineQueue[2][2]
+        groups[2][0][2] = queue.lineQueue[3][0]
+        groups[2][1][2] = queue.lineQueue[3][1]
+        groups[2][2][2] = queue.lineQueue[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutBottomFlatClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyStack = RubiksCubeStack(lineStack: [])
+        var stack = RubiksCubeStack(lineStack: target)
+        
+        emptyStack.push(stack.pop() ?? [])
+        stack.insert(emptyStack.pop() ?? [])
+        
+        groups[0][0] = stack.lineStack[0]
+        groups[1][0][0] = stack.lineStack[1][0]
+        groups[1][1][0] = stack.lineStack[1][1]
+        groups[1][2][0] = stack.lineStack[1][2]
+        groups[5][2] = stack.lineStack[2]
+        groups[3][0][2] = stack.lineStack[3][0]
+        groups[3][1][2] = stack.lineStack[3][1]
+        groups[3][2][2] = stack.lineStack[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutBottomFlatAntiClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyQueue = RubiksCubeQueue(lineQueue: [])
+        var queue = RubiksCubeQueue(lineQueue: target)
+        
+        emptyQueue.enqueue(queue.dequeue() ?? [])
+        queue.enqueue(emptyQueue.dequeue() ?? [])
+        
+        groups[0][0] = queue.lineQueue[0]
+        groups[1][0][0] = queue.lineQueue[1][0]
+        groups[1][1][0] = queue.lineQueue[1][1]
+        groups[1][2][0] = queue.lineQueue[1][2]
+        groups[5][2] = queue.lineQueue[2]
+        groups[3][0][2] = queue.lineQueue[3][0]
+        groups[3][1][2] = queue.lineQueue[3][1]
+        groups[3][2][2] = queue.lineQueue[3][2]
+        
+        return groups
+    }
+    
+    private mutating func pushOutDownFlatClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyStack = RubiksCubeStack(lineStack: [])
+        var stack = RubiksCubeStack(lineStack: target)
+        
+        emptyStack.push(stack.pop() ?? [])
+        stack.insert(emptyStack.pop() ?? [])
+        
+        groups[2][2] = stack.lineStack[0]
+        groups[3][2] = stack.lineStack[1]
+        groups[4][2] = stack.lineStack[2]
+        groups[1][2] = stack.lineStack[3]
+        
+        return groups
+    }
+    
+    private mutating func pushOutDownFlatAntiClockwise(_ target: [[String]]) -> rubiksCube {
+        var emptyQueue = RubiksCubeQueue(lineQueue: [])
+        var queue = RubiksCubeQueue(lineQueue: target)
+        
+        emptyQueue.enqueue(queue.dequeue() ?? [])
+        queue.enqueue(emptyQueue.dequeue() ?? [])
+       
+        groups[2][2] = queue.lineQueue[0]
+        groups[3][2] = queue.lineQueue[1]
+        groups[4][2] = queue.lineQueue[2]
+        groups[1][2] = queue.lineQueue[3]
         
         return groups
     }

@@ -8,8 +8,8 @@
 import Foundation
 
 struct Print {
-    func printRubiksCube(_ rubiksCube: [String]) {
-        print(rubiksCube.reduce("", { $0 + $1 }))
+    func printLine(_ line: [String]) {
+        print(line.reduce("", { $0 + $1 }))
     }
     
     //MARK:- 평면 큐브
@@ -36,6 +36,21 @@ struct Print {
     }
     
     //MARK:- 루빅스 큐브
+    func printRubiksCube(_ myRubiksCubes: [resultRubiksCube]) {
+        myRubiksCubes.forEach { myRubiksCube in
+            print(myRubiksCube.key)
+            myRubiksCube.value.forEach { cubes in
+                for cube in cubes {
+                    for element in cube {
+                        print(element, terminator: " ")
+                    }
+                    print("")
+                }
+                print("")
+            }
+            print("")
+        }
+    }
     
     func initPrintRubiksCube(_ initRubiksCube: RubiksCube) {
         initRubiksCube.groups.forEach { cubes in
