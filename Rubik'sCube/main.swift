@@ -39,7 +39,7 @@ func start() {
     var rubiksCube = RubiksCube(groups: [bFlatCube.groups, wFlatCube.groups, oFlatCube.groups, gFlatCube.groups, yFlatCube.groups, rFlatCube.groups,])
     let rubiksCubeActions = myInput.rubiksCubeInput(initRubiksCube: rubiksCube)
     let myRubiksCube = rubiksCube.move(input: rubiksCubeActions)
-    myPrint.printRubiksCube(myRubiksCube)
+    myPrint.printRubiksCube(myRubiksCubes: myRubiksCube, initRubiksCube: rubiksCube)
 }
 
 start()

@@ -36,8 +36,14 @@ struct Print {
     }
     
     //MARK:- 루빅스 큐브
-    func printRubiksCube(_ myRubiksCubes: [resultRubiksCube]) {
+    func printRubiksCube(myRubiksCubes: [resultRubiksCube], initRubiksCube: RubiksCube) {
         myRubiksCubes.forEach { myRubiksCube in
+        
+            guard myRubiksCube.value != initRubiksCube.groups else {
+                print("모든 면을 맞추었습니다. 축하합니다.!!🎉🎉🎉")
+                return
+            }
+            
             print(myRubiksCube.key)
             myRubiksCube.value.forEach { cubes in
                 for cube in cubes {
