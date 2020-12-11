@@ -33,21 +33,33 @@ enum FlatCubeAction: String {
 enum RubiksCubeAction: String {
     case frontClockwise = "F"
     case frontAntiClockwise = "F'"
+    case frontClockwiseTwice = "F2"
+    case frontAntiClockwiseTwice = "F'2"
     
     case topFlatClockwise = "U"
     case topFlatAntiClockwise = "U'"
+    case topFlatClockwiseTwice = "U2"
+    case topFlatAntiClockwiseTwice = "U'2"
     
     case leftFlatClockwise = "L"
     case leftFlatAntiClockwise = "L'"
+    case leftFlatClockwiseTwice = "L2"
+    case leftFlatAntiClockwiseTwice = "L'2"
     
     case rightFlatClockwise = "R"
     case rightFlatAntiClockwise = "R'"
+    case rightFlatClockwiseTwice = "R2"
+    case rightFlatAntiClockwiseTwice = "R'2"
     
     case bottomFlatClockwise = "B"
     case bottomFlatAntiClockwise = "B'"
+    case bottomFlatClockwiseTwice = "B2"
+    case bottomFlatAntiClockwiseTwice = "B'2"
     
     case downFlatClockwise = "D"
     case downFlatAntiClockwise = "D'"
+    case downFlatClockwiseTwice = "D2"
+    case downFlatAntiClockwiseTwice = "D'2"
     
     case bye = "Q"
 }
