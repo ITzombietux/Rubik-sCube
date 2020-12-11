@@ -38,9 +38,10 @@ struct Print {
     //MARK:- 루빅스 큐브
     func printRubiksCube(myRubiksCubes: [resultRubiksCube], initRubiksCube: RubiksCube) {
         myRubiksCubes.forEach { myRubiksCube in
-        
-            guard myRubiksCube.value != initRubiksCube.groups else {
-                print("모든 면을 맞추었습니다. 축하합니다.!!🎉🎉🎉")
+    
+            guard myRubiksCube.key != "Q" else {
+                print("조작갯수: \(UserDefaults.standard.integer(forKey: UserDefaults.Keys.pushOutCount))")
+                print("이용해주셔서 감사합니다. 뚜뚜뚜.")
                 return
             }
             

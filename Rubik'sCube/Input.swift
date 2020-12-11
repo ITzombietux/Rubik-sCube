@@ -50,6 +50,11 @@ struct Input {
         print("\nCUBE> ", terminator: "")
         let inputString = readLine() ?? ""
         
+        guard inputString == "Q" else {
+            UserDefaults.standard.set(inputString.count, forKey: UserDefaults.Keys.pushOutCount)
+            return inputString
+        }
+        
         return inputString
     }
 }

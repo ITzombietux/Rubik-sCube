@@ -17,6 +17,7 @@
 		933DB0FF257F0A1300CB6FF8 /* FlatCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */; };
 		933DB10A257F2A9200CB6FF8 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB109257F2A9200CB6FF8 /* Enum.swift */; };
 		933DB10F258059FF00CB6FF8 /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB10E258059FF00CB6FF8 /* RubiksCube.swift */; };
+		933DB1BC2583041300CB6FF8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB1BB2583041300CB6FF8 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		933DB0FE257F0A1300CB6FF8 /* FlatCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCube.swift; sourceTree = "<group>"; };
 		933DB109257F2A9200CB6FF8 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		933DB10E258059FF00CB6FF8 /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
+		933DB1BB2583041300CB6FF8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				933DB0BA257DBB3F00CB6FF8 /* Input.swift */,
 				933DB0CB257E07E500CB6FF8 /* Print.swift */,
 				933DB0CF257E0BB300CB6FF8 /* Exception.swift */,
+				933DB1BB2583041300CB6FF8 /* UserDefaults.swift */,
 				933DB107257F27D200CB6FF8 /* Cube */,
 			);
 			path = "Rubik'sCube";
@@ -181,6 +184,7 @@
 				933DB0C7257DD93E00CB6FF8 /* Queue.swift in Sources */,
 				933DB0CC257E07E500CB6FF8 /* Print.swift in Sources */,
 				933DB0C4257DD92600CB6FF8 /* Stack.swift in Sources */,
+				933DB1BC2583041300CB6FF8 /* UserDefaults.swift in Sources */,
 				933DB0BB257DBB3F00CB6FF8 /* Input.swift in Sources */,
 				933DB0B8257DB9D500CB6FF8 /* PushOut.swift in Sources */,
 				933DB10A257F2A9200CB6FF8 /* Enum.swift in Sources */,
