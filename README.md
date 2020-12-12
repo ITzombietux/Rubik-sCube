@@ -94,8 +94,3 @@ func printLine(_ line: [String]) {
 
 ## 2단계: 평면 큐브
 
-
-
-        return rightPushOut()ㅂ
-        return rightPushOut()
-        return rightPushOut()
