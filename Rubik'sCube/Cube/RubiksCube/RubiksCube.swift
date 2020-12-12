@@ -46,68 +46,81 @@ struct RubiksCube {
     private mutating func pushOut(_ action: String) -> rubiksCube {
         let move = RubiksCubeAction(rawValue: action)
         
+        let resultTopFlatClockwise = pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+        let resultTopFlatAntiClockwise = pushOutTopFlatAntiClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+        let resultFrontClockwise = pushOutFrontClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
+        let resultFrontAntiClockwise = pushOutFrontAntiClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
+        let resultLeftFlatClockwise = pushOutLeftFlatClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
+        let resultLeftFlatAntiClockwise = pushOutLeftFlatAntiClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
+        let resultRightFlatClockwise = pushOutRightFlatClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+        let resultRightFlatAntiClockwise = pushOutRightFlatAntiClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+        let resultBottomFlatClockwise = pushOutBottomFlatClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+        let resultBottomFlatAntiClockwise = pushOutBottomFlatAntiClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+        let resultDownFlatClockwise = pushOutDownFlatClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
+        let resultDownFlatAntiClockwise = pushOutDownFlatAntiClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
+        
+        
         switch move {
         case .topFlatClockwise:
-            return pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+            return resultTopFlatClockwise
         case .frontClockwise:
-            return pushOutFrontClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
+            return resultFrontClockwise
         case .frontAntiClockwise:
-            return pushOutFrontAntiClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
+            return resultFrontAntiClockwise
         case .topFlatAntiClockwise:
-            return pushOutTopFlatAntiClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+            return resultTopFlatAntiClockwise
         case .leftFlatClockwise:
-            return pushOutLeftFlatClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
+            return resultLeftFlatClockwise
         case .leftFlatAntiClockwise:
-            return pushOutLeftFlatAntiClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
+            return resultLeftFlatAntiClockwise
         case .rightFlatClockwise:
-            return pushOutRightFlatClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+            return resultRightFlatClockwise
         case .rightFlatAntiClockwise:
-            return pushOutRightFlatAntiClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+            return resultRightFlatAntiClockwise
         case .bottomFlatClockwise:
-            return pushOutBottomFlatClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+            return resultBottomFlatClockwise
         case .bottomFlatAntiClockwise:
-            return pushOutBottomFlatAntiClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+            return resultBottomFlatAntiClockwise
         case .downFlatClockwise:
-            return pushOutDownFlatClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
+            return resultDownFlatClockwise
         case .downFlatAntiClockwise:
-            return pushOutDownFlatAntiClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
-        
+            return resultDownFlatAntiClockwise
         case .frontClockwiseTwice:
-            _ = pushOutFrontClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
-            return pushOutFrontClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
+            _ = resultFrontClockwise
+            return resultFrontClockwise
         case .frontAntiClockwiseTwice:
-            _ = pushOutFrontAntiClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
-            return pushOutFrontAntiClockwise([groups[0][2], [groups[3][0][0], groups[3][1][0], groups[3][2][0]], groups[5][0], [groups[1][0][2], groups[1][1][2], groups[1][2][2]]])
+            _ = resultFrontAntiClockwise
+            return resultFrontAntiClockwise
         case .topFlatClockwiseTwice:
-            _ = pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
-            return pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+            _ = resultTopFlatClockwise
+            return resultTopFlatClockwise
         case .topFlatAntiClockwiseTwice:
-            _ = pushOutTopFlatAntiClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
-            return pushOutTopFlatAntiClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+            _ = resultTopFlatAntiClockwise
+            return resultTopFlatAntiClockwise
         case .leftFlatClockwiseTwice:
-            _ = pushOutLeftFlatClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
-            return pushOutLeftFlatClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
+            _ = resultLeftFlatClockwise
+            return resultLeftFlatClockwise
         case .leftFlatAntiClockwiseTwice:
-            _ = pushOutLeftFlatAntiClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
-            return pushOutLeftFlatAntiClockwise([[groups[0][0][0], groups[0][1][0], groups[0][2][0]], [groups[2][0][0], groups[2][1][0], groups[2][2][0]], [groups[4][0][0], groups[4][1][0], groups[4][2][0]], [groups[5][0][0], groups[5][1][0], groups[5][2][0]] ])
+            _ = resultLeftFlatAntiClockwise
+            return resultLeftFlatAntiClockwise
         case .rightFlatClockwiseTwice:
-            _ = pushOutRightFlatClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
-            return pushOutRightFlatClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+            _ = resultRightFlatClockwise
+            return resultRightFlatClockwise
         case .rightFlatAntiClockwiseTwice:
-            _ = pushOutRightFlatAntiClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
-            return pushOutRightFlatAntiClockwise([[groups[0][0][2], groups[0][1][2], groups[0][2][2]], [groups[4][0][2], groups[4][1][2], groups[4][2][2]], [groups[5][0][2], groups[5][1][2], groups[5][2][2]], [groups[2][0][2], groups[2][1][2], groups[2][2][2]] ])
+            _ = resultRightFlatAntiClockwise
+            return resultRightFlatAntiClockwise
         case .bottomFlatClockwiseTwice:
-            _ = pushOutBottomFlatClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
-            return pushOutBottomFlatClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+            _ = resultBottomFlatClockwise
+            return resultBottomFlatClockwise
         case .bottomFlatAntiClockwiseTwice:
-            _ = pushOutBottomFlatAntiClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
-            return pushOutBottomFlatAntiClockwise([groups[0][0], [groups[1][0][0], groups[1][1][0], groups[1][2][0]], groups[5][2], [groups[3][0][2], groups[3][1][2], groups[3][2][2]]])
+            _ = resultBottomFlatAntiClockwise
+            return resultBottomFlatAntiClockwise
         case .downFlatClockwiseTwice:
-            _ = pushOutDownFlatClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
-            return pushOutDownFlatClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
+            _ = resultDownFlatClockwise
+            return resultDownFlatClockwise
         case .downFlatAntiClockwiseTwice:
-            _ = pushOutDownFlatAntiClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
-            return pushOutDownFlatAntiClockwise([groups[2][2], groups[3][2], groups[4][2], groups[1][2]])
+            _ = resultDownFlatAntiClockwise
+            return resultDownFlatAntiClockwise
         case .bye:
             print()
         case .none:
