@@ -6,7 +6,7 @@
 Input 구조체의 pushOutInput 함수를 사용하여 사용자 입력으 받는다.
 입려 예) apple 3 R / banana 6 L
 
-```
+<pre><code>
 let inputArr = readLine() ?? ""
 let splitedInputArr = inputArr.components(separatedBy: " ")
 let word = splitedInputArr[0]
@@ -14,7 +14,8 @@ let number = Int(splitedInputArr[1])
 let direction = splitedInputArr[2]
 
 return (word, number ?? 1, direction)
-```
+</pre></code>
+
 사용자 입력을 튜플로 리턴한다.
 
 2. 사용자 입려 튜플을 PushOut구조체 파라미터로 넣어 초기화 하여 단어 밀어내기 로직을 실행한다.
