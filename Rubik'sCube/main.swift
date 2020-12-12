@@ -9,12 +9,12 @@ import Foundation
 
 //메인 함수
 func start() {
-    let myInput = Input()
-    let myPrint = Print()
+//    let myInput = Input()
+//    let myPrint = Print()
     
     //MARK:- 단어 밀어내기
     /*
-    let myInputInfo = myInput.rubikCubeInput()
+    let myInputInfo = myInput.pushOutInput()
     var pushOut = PushOut(word: myInputInfo.0, number: myInputInfo.1, direction: myInputInfo.2)
     myPrint.printLine(pushOut.pushOut())
      */
@@ -35,11 +35,18 @@ func start() {
     let gFlatCube = FlatCube(groups: [["G", "G", "G"], ["G", "G", "G"], ["G", "G", "G"]])
     let yFlatCube = FlatCube(groups: [["Y", "Y", "Y"], ["Y", "Y", "Y"], ["Y", "Y", "Y"]])
     let rFlatCube = FlatCube(groups: [["R", "R", "R"], ["R", "R", "R"], ["R", "R", "R"]])
+        
+    startRubiksCube(flatCubeGroups: [bFlatCube.groups, wFlatCube.groups, oFlatCube.groups, gFlatCube.groups, yFlatCube.groups, rFlatCube.groups])
+}
+
+func startRubiksCube(flatCubeGroups: [[[String]]]) {
+    let myInput = Input()
+    let myPrint = Print()
     
-    var rubiksCube = RubiksCube(groups: [bFlatCube.groups, wFlatCube.groups, oFlatCube.groups, gFlatCube.groups, yFlatCube.groups, rFlatCube.groups,])
-    let rubiksCubeActions = myInput.rubiksCubeInput(initRubiksCube: rubiksCube)
-    let myRubiksCube = rubiksCube.move(input: rubiksCubeActions)
-    myPrint.printRubiksCube(myRubiksCubes: myRubiksCube, initRubiksCube: rubiksCube)
+    var initRubiksCube = RubiksCube(groups: flatCubeGroups)
+    let inputAction = myInput.rubiksCubeMainInput(initRubiksCube: initRubiksCube)
+    let myRubiksCube = initRubiksCube.move(input: inputAction)
+    myPrint.printRubiksCube(myRubiksCubes: myRubiksCube, initRubiksCube: initRubiksCube)
 }
 
 start()

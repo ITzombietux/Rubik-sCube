@@ -13,7 +13,7 @@ typealias direction = String
 
 struct Input {
     //MARK:- 단어 밀어내기
-    func rubikCubeInput() -> (word, number, direction) {
+    func pushOutInput() -> (word, number, direction) {
         let inputArr = readLine() ?? ""
         let splitedInputArr = inputArr.components(separatedBy: " ")
         let word = splitedInputArr[0]
@@ -26,7 +26,7 @@ struct Input {
             try exception.precondition(number: number ?? 0)
         } catch {
             print("다시 시작")
-            rubikCubeInput()
+            _ = pushOutInput()
         }
 
         return (word, number ?? 1, direction)
@@ -43,15 +43,21 @@ struct Input {
     }
     
     //MARK:- 루빅스 큐브
-    func rubiksCubeInput(initRubiksCube: RubiksCube) -> String {
+    func rubiksCubeMainInput(initRubiksCube: RubiksCube) -> String {
         let myPrint = Print()
         myPrint.initPrintRubiksCube(initRubiksCube)
+        UserDefaults.standard.set(0, forKey: UserDefaults.Keys.pushOutCount)
         
+        return rubiksCubeInput()
+    }
+    
+    func rubiksCubeInput() -> String {
         print("\nCUBE> ", terminator: "")
         let inputString = readLine() ?? ""
         
         guard inputString == "Q" else {
-            UserDefaults.standard.set(inputString.count, forKey: UserDefaults.Keys.pushOutCount)
+            let lastPushOutCount = UserDefaults.standard.integer(forKey: UserDefaults.Keys.pushOutCount)
+            UserDefaults.standard.set(lastPushOutCount + inputString.count, forKey: UserDefaults.Keys.pushOutCount)
             return inputString
         }
         

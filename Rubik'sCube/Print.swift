@@ -37,37 +37,51 @@ struct Print {
     
     //MARK:- 루빅스 큐브
     func printRubiksCube(myRubiksCubes: [resultRubiksCube], initRubiksCube: RubiksCube) {
+        var lastFlatCubes: [flatCube] = []
+        
         myRubiksCubes.forEach { myRubiksCube in
-    
             guard myRubiksCube.key != "Q" else {
                 print("조작갯수: \(UserDefaults.standard.integer(forKey: UserDefaults.Keys.pushOutCount))")
                 print("이용해주셔서 감사합니다. 뚜뚜뚜.")
                 return
             }
-            
             print(myRubiksCube.key)
+            lastFlatCubes = myRubiksCube.value
+            
             myRubiksCube.value.forEach { cubes in
-                for cube in cubes {
-                    for element in cube {
-                        print(element, terminator: " ")
-                    }
-                    print("")
-                }
-                print("")
+                printRubiksElement(cubes: cubes)
             }
-            print("")
         }
+        restart(lastFlatCubes)
     }
     
     func initPrintRubiksCube(_ initRubiksCube: RubiksCube) {
         initRubiksCube.groups.forEach { cubes in
-            for cube in cubes {
-                for element in cube {
-                    print(element, terminator: " ")
-                }
-                print(" ")
-            }
-            print(" ")
+            printRubiksElement(cubes: cubes)
         }
+    }
+    
+    private func printRubiksElement(cubes: [[String]]) {
+        for cube in cubes {
+            for element in cube {
+                print(element, terminator: " ")
+            }
+            print()
+        }
+        print()
+    }
+    
+    private func restart(_ lastFlatCubes: [flatCube]) {
+        let myInput = Input()
+        let myPrint = Print()
+        
+        var resultrRubiksCube = RubiksCube(groups: lastFlatCubes)
+        let inputAction = myInput.rubiksCubeInput()
+        let myRubiksCube = resultrRubiksCube.move(input: inputAction)
+        myPrint.printRubiksCube(myRubiksCubes: myRubiksCube, initRubiksCube: RubiksCube.init(groups: []))
+    }
+    
+    private func setPushOutCount() {
+        
     }
 }
