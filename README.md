@@ -77,3 +77,24 @@ private mutating func leftPushOut() -> [String] {
     return queue.wordQueue
 }
 ```
+
+3. 리턴받은 pushOut을 Print구조체를 사용하여 출력한다.
+
+```
+myPrint.printLine(pushOut.pushOut())
+```
+
+```
+func printLine(_ line: [String]) {
+    print(line.reduce("", { $0 + $1 }))
+}
+```
+
+
+## 2단계: 평면 큐브
+
+
+
+        return rightPushOut()ㅂ
+        return rightPushOut()
+        return rightPushOut()
