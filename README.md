@@ -111,3 +111,53 @@ func flatCubeInput(initFlatCube: [[String]]) -> String {
     return inputString
 }
 ```
+
+3. 초기화한 flatCube 구조체의 move메서드를 사용하여 사용자 입력에 대하 평면 큐브 밀어내기 로직을 수행한다.
+
+```
+let myFlatCube = flatCube.move(input: flatCubeActions)
+```
+
+makeAction 메서드를 사용하여 사용자 입력을 큐브 밀어내기를 할 수 있느 데이터로 바꾸고, 큐브 밀어내기 데이터에 맞는 pushOut메서드를 수행한다.
+```
+mutating func move(input: String) -> [resultFlatCube] {
+    let actions = makeAction(input)
+    var myFlatCube = [flatCube]()
+    var resultFlatCube: [resultFlatCube] = []
+        
+    for action in actions {
+        myFlatCube.append(pushOut(action))
+    }
+        
+    resultFlatCube = zip(actions, myFlatCube).map { (key: $0, value: $1) }
+        
+    return resultFlatCube
+}
+```
+
+3. pushOut수행을 마친 후 리턴된 평면큐브를 Print구조체를 사용하여 출력한다.
+
+```
+myPrint.printFlatCube(myFlatCube)
+```
+
+우선, 사용자 입력 데이터를 출력한 후 데이터에 맞게 밀어내기 된 평면 큐브를 출력한다.
+```
+func printFlatCube(_ flatCubes: [resultFlatCube]) {
+    flatCubes.forEach { cubes in
+        print(cubes.key)
+        for cube in cubes.value {
+            for element in cube {
+                print(element, terminator: " ")
+            }
+            print("")
+        }
+        print("")
+    }
+}
+```
+
+## 3단계: 루빅스 큐브
+
+```
+```
