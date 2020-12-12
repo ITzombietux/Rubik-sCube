@@ -94,3 +94,20 @@ func printLine(_ line: [String]) {
 
 ## 2단계: 평면 큐브
 
+1. 평면 큐브르 초기화한다.
+
+```
+var flatCube = FlatCube(groups: [["R", "R", "W"], ["G", "C", "W"], ["G", "B", "B"]])
+```
+
+2. 사용자 입력을 받는다. 사용자 입력을 받을 때, Print구조체의 initPrintFlatCube메서드를 사용하여 평면큐브 초기 상태르 먼저 출력한다.
+```
+func flatCubeInput(initFlatCube: [[String]]) -> String {
+    let myPrint = Print()
+    myPrint.initPrintFlatCube(initFlatCube)
+    print("\nCUBE> ", terminator: "")
+    let inputString = readLine() ?? ""
+        
+    return inputString
+}
+```
