@@ -35,6 +35,7 @@ mutating func pushOut() -> [String] {
         
     return [String]()
 }
+```
 
 방향이 R,r이면 rightPushOut 메서드를 리턴하고,
 
