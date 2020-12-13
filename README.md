@@ -181,3 +181,39 @@ let myInput = Input()
 
 let inputAction = myInput.rubiksCubeMainInput(initRubiksCube: initRubiksCube)
 ```
+
+- 루빅스 큐브 사용자 입력을 받는 순서는, 먼저 초기상태를 출력한 후, 사용자입력 카운트를 0으로 초기화 시킨 후 사용자 입력을 받는다.
+```
+func rubiksCubeMainInput(initRubiksCube: RubiksCube) -> String {
+    let myPrint = Print()
+    myPrint.initPrintRubiksCube(initRubiksCube)
+    UserDefaults.standard.set(0, forKey: UserDefaults.Keys.pushOutCount)
+        
+    return rubiksCubeInput()
+}
+```
+
+- 루빅스 큐브 초기상태 출력 메서드
+```
+func initPrintRubiksCube(_ initRubiksCube: RubiksCube) {
+    initRubiksCube.groups.forEach { cubes in
+        printRubiksElement(cubes: cubes
+    }
+}
+```
+
+- 사용자 입력이 Q가 아니라면 조작갯수를 사용자 입력수 만큼 추가후 리턴한다.
+```
+func rubiksCubeInput() -> String {
+    print("\nCUBE> ", terminator: "")
+    let inputString = readLine() ?? ""
+        
+    guard inputString == "Q" else {
+        let lastPushOutCount = UserDefaults.standard.integer(forKey: UserDefaults.Keys.pushOutCount)
+        UserDefaults.standard.set(lastPushOutCount + inputString.count, forKey: UserDefaults.Keys.pushOutCount)
+        return inputString
+    }
+        
+    return inputString
+}
+```
