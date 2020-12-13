@@ -217,3 +217,64 @@ func rubiksCubeInput() -> String {
     return inputString
 }
 ```
+
+3. RubisCube구조체의 move메서드에 사용자입력을 파라미터로 넣어 로직을 수행한다.
+```
+let myRubiksCube = initRubiksCube.move(input: inputAction)
+```
+
+- move메서드의 처음엔 makeAction메서드르 통하여 사용자입력을 루빅스 큐브를 움직일 수 있는 데이터로 바꾼다
+```
+mutating func move(input: String) -> [resultRubiksCube] {
+    let actions = makeAction(input)
+    var myRubiksCube = [rubiksCube]()
+    var myResultRubiksCube: [resultRubiksCube] = []
+        
+    for action in actions {
+        myRubiksCube.append(pushOut(action))
+    }
+        
+    myResultRubiksCube = zip(actions, myRubiksCube).map { (key: $0, value: $1) }
+    return myResultRubiksCube
+}
+```
+
+```
+private mutating func makeAction(_ input: String) -> [String] {
+    let result = input.reduce(into: [String]()) {
+        if $1.isUppercase || $0.isEmpty {
+            $0.append("\($1)") }
+        else {
+            $0[$0.count - 1] = $0.last! + "\($1)"
+        }
+    }
+        
+    return result
+}
+```
+
+- 사용자 입력 데이터를 입력한 순서대로 pushOut메서드에 파라미터로 넣으며 초기 루빅스 큐브를 움직인다. 
+```
+private mutating func pushOut(_ action: String) -> rubiksCube {
+    let move = RubiksCubeAction(rawValue: action)
+    
+    let resultTopFlatClockwise = pushOutTopFlatClockwise([groups[1][0], groups[2][0], groups[3][0], groups[4][0]])
+    ...
+    ...
+    
+    switch move {
+        case .topFlatClockwise:
+            return resultTopFlatClockwise
+            ...
+            ...
+    }
+}
+```
+
+- 사용자 입력값을 key로 사용자 입력값에 의해 움직여진 루빅스 큐브를 value로 만들어 리턴한다.
+```
+var myResultRubiksCube: [resultRubiksCube] = []
+               
+myResultRubiksCube = zip(actions, myRubiksCube).map { (key: $0, value: $1) }
+return myResultRubiksCube
+```
