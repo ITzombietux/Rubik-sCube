@@ -159,5 +159,25 @@ func printFlatCube(_ flatCubes: [resultFlatCube]) {
 
 ## 3단계: 루빅스 큐브
 
+1. 평면큐브 6개를 사용하여 루빅스 큐브 초기상태를 생성한다.
+
 ```
+let wFlatCube = FlatCube(groups: [["W", "W", "W"], ["W", "W", "W"], ["W", "W", "W"]])
+let bFlatCube = FlatCube(groups: [["B", "B", "B"], ["B", "B", "B"], ["B", "B", "B"]])
+let oFlatCube = FlatCube(groups: [["O", "O", "O"], ["O", "O", "O"], ["O", "O", "O"]])
+let gFlatCube = FlatCube(groups: [["G", "G", "G"], ["G", "G", "G"], ["G", "G", "G"]])
+let yFlatCube = FlatCube(groups: [["Y", "Y", "Y"], ["Y", "Y", "Y"], ["Y", "Y", "Y"]])
+let rFlatCube = FlatCube(groups: [["R", "R", "R"], ["R", "R", "R"], ["R", "R", "R"]])
+
+flatCubeGroups: [bFlatCube.groups, wFlatCube.groups, oFlatCube.groups, gFlatCube.groups, yFlatCube.groups, rFlatCube.groups]
+
+var initRubiksCube = RubiksCube(groups: flatCubeGroups)
+```
+
+2. Input 구조체의 rubiksCubeMainInput 메서드를 사용하여 루빅스 큐브 초기상태 출력 및 사용자 입력을 받는다.
+
+```
+let myInput = Input()
+
+let inputAction = myInput.rubiksCubeMainInput(initRubiksCube: initRubiksCube)
 ```
