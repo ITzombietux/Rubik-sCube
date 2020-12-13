@@ -278,3 +278,30 @@ var myResultRubiksCube: [resultRubiksCube] = []
 myResultRubiksCube = zip(actions, myRubiksCube).map { (key: $0, value: $1) }
 return myResultRubiksCube
 ```
+
+4. printRubiksCube 메서드를 사용하여 myResultRubiksCube를 출력한다.
+
+- 먼저 lastFlatCubes 변수를 만들고 마지막으로 움직여진 루빅스 큐브를 담아둔다.
+- 사용자입력값이 Q라면 조작갯수를 출력하면서 프로그램을 종료시키고, Q가 아니라면 출력 후
+- restart메서드를 통해 계속해서 사용자입력을 받는다.
+
+```
+func printRubiksCube(myRubiksCubes: [resultRubiksCube], initRubiksCube: RubiksCube) {
+    var lastFlatCubes: [flatCube] = []
+        
+    myRubiksCubes.forEach { myRubiksCube in
+        guard myRubiksCube.key != "Q" else {
+            print("조작갯수: \(UserDefaults.standard.integer(forKey: UserDefaults.Keys.pushOutCount))")
+            print("이용해주셔서 감사합니다. 뚜뚜뚜.")
+            return
+        }
+        print(myRubiksCube.key)
+        lastFlatCubes = myRubiksCube.value
+            
+        myRubiksCube.value.forEach { cubes in
+            printRubiksElement(cubes: cubes)
+        }
+    }
+    restart(lastFlatCubes)
+}
+```
